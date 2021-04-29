@@ -7,6 +7,32 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <h2>input태그의 버튼 속성</h2>
+
+        <fieldset>
+            <form action="">
+                이름:
+                <input type="text" name="name" value="코스모">
+                <br>
+                직업:
+                <input type="radio" name="job" value="S" checked="checked">학생&nbsp;&nbsp;
+                <input type="radio" name="job" value="T">강사
+                <br>
+                자기소개:
+                <textarea name="intro" cols="50" rows="5">내용은 여기에 입력됩니다.</textarea>
+                <br>
+                <input type="image" src="./images/button.jpg">
+                <br>
+                <input type="submit" value="전송">
+                <br>
+                <input type="reset" value="리셋">
+                <br>
+                <button type="button" onclick="alert('경고창');">버튼타이틀</button>
+                <br>
+                <input type="button" onmouseover="alert('마우스 올림?');" value="MouseOver이벤트">&nbsp;&nbsp;
+                <input type="button" onMoutseOUt="alert('마우스 내림?'):" value="MouseOut이벤트">>
+            </form>
+        </fieldset>
+        <br><br><br><br><br><br><br>
     </body>
 </html>

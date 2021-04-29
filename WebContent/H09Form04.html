@@ -7,6 +7,66 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <h2>HTML5d에서 지원하는input의 다양한 속성</h2>
+
+        <form action="" method="get" name="frm">
+        <table cellpadding="10" cellspacing="1" width="800">
+            <colgroup>
+                <col style="width:40%;">
+                <col style="width:*">
+            </colgroup>
+                <tr>
+                    <td>placeholder : 텍스트 박스의 힌트 표시</td>
+                    <td>
+                        <input type="text" placeholder="힌트 표시">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>autofocus: 입력 커서 표시</td>
+                    <td>
+                        <input type="text" autofocus size="40" placeholder="페이지 로딩 시 커서 자동 이동">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>required : 필수입력사항 표시</td>
+                    <td>
+                        <input type="text" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>tyoe= "number" : 숫자를 스핀박스 이용하여 입력</td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>type = "range"</td>
+                    <td>
+                        <input type="range" value="2" min="1" max="10" step="!" name="rangeNum">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>type="color"</td>
+                    <td>
+                        <input type="color" name="colorCode">
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td colspan="2" style="background-color:#466ae6;">
+                        <button type="submit">전송</button>
+                    </td>
+                </tr>
+
+        </table>
+
+
+        </form>
     </body>
 </html>
