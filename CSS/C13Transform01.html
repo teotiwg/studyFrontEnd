@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #rect{ 
+                width:150px; height:150px;
+                line-height:150px; background-color:red;
+                text-align:center;
+                /* 변형이 3초 동안 진행
+                변현되는 시간이 설정되면서 애니메이션 효과 발생 */    
+                transition-duration:3s;
+            }
+            #rect:hover{
+                width:300px; height:200px;
+                line-height:300px; background-color:green;
+            }
+            #rect:active{
+                width:250px; height:250px;
+                line-height:250px; background-color:blue;
+                border-radius:110px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Transform 변형 1</h2>
+            <div id="rect">
+                나는 사각형
+            </div>
+    </body>
+</html>

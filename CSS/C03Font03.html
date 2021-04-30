@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size:12px;
+        }
+        a{
+            text-decoration:none; color:black;
+        }
+        a:hover{
+            text-decoration:underline; color:green;
+            font-size:30px; font-weight:bold;
+        }
+        /* 링크를 마우스로 클릭했을 때 윗줄 생성 */
+        a:active{
+            text-decoration:overline; color:red;
+        }
+        /* 방문이력이 있을 때 파란색으로 표시 */
+        a:visited{
+            color:blue;
+        }
+        /* a태그 중에서 class명이 other인 요소 선택 */
+        a.other{
+            text-decoration: none; color:brown;
+        }
+        a.other:hover{
+            text-decoration:underline; color:#EEEEEE;
+            font-size:20px; font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>텍스트 꾸미기</h2>
+    <div>
+        <ul class="link">
+            <li><a href="www.naver.com">네이버</a></li>
+            <li><a href="www.nate.com">네이트</a></li>
+            <li><a href="www.daum.net">다움</a></li>
+            <li><a href="www.google.com">구글</a></li>
+            <li><a href="www.ikosmo.co.kr">코스모</a></li>
+            <li><a href="www.yahoo.com">야후</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <a href="www.tmon.co.kr" class="other">다른 효과 주기</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+            수평 방향에서의 정렬
+            - 블럭: 
+                콘텐츠의 양에 상관없이 하나의 블럭을 차지하므로 우측의 공간이 충분하여 콘텐츠는 우측정렬됌
+            - 인라인: 
+                콘텐츠의 크기만큼만 영역을 차지하므로 콘텐츠가 움직일 공간이 없어 정렬되지 않음
+                만약 정렬해야 한다면 부모엘리먼트에서 text-align을 설정해야 함
+         -->
+        <h2>문단관련  CSS 속성들</h2>
+
+        <div style="border:1px blue dotted; width:400px;">
+            <h2>콘텐츠 수평 정렬</h2>
+            <div style="border: 1px solid red; text-align:right;">
+                블럭 엘리먼트
+            </div>
+            <!-- span을 정렬하기 위해 아래처럼 부모 div태그가 필요 -->
+            <span style="border:1px solid blue; text-align: right;">
+                인라인 엘리먼트
+            </span>
+        </div>
+        <!-- 
+            line-height: 줄 간격. 즉 라인 사이의 간격을 띄우는데 블럭과 인라인은 다르게 적용됌
+            블럭 -> 콘텐츠의 영역 중 세로 영역이 늘어나서 마치 줄간격이 생긴 것처럼 보여짐
+            인라인 -> 콘텐츠의 영역은 변화가 없지만, 지정된 사이즈만큼 줄 간격이 생겨 사이가 벌어짐
+        -->
+        <h3>줄 사이의 간격</h3>
+        <h4 style="line-height:5em; border:1px solid blue;">
+            블럭 엘리먼트에1에 줄간격 적용
+        </h4>
+        <h4 style="border:1px solid black;">블럭 엘리먼트 2</h4>
+        <h4 style="border:1px solid black;">블럭 엘리먼트 3</h4>
+
+        <div class="inline">
+            <span style="line-heightL5em; border:1px solid black;">
+                인라인 엘리먼트1</span><br>
+            <span style="border:1px solid black;">인라인 엘리먼트2</span><br>
+            <span style="border:1px solid black;">인라인 엘리먼트2</span><br>
+        </div>
+
+        <h3>수직 상태에서의 가운데 정렬</h3>
+        <!-- div박스의 height와 line-height의 값을 동일하게 지정하면 ㅅ로상태에서 가운데 정렬 됌 -->
+        <h4>블럭 엘리먼트 사용시 방법 1</h4>
+        <div style="border: 1px solid black; height: 200px; wudth:200px;">
+        나는 텍스트1
+        </div>
+
+        <!-- div박스 내부의 패딩을 지정해서 텍스트를 아래로 밀어줌
+        이 경우, 세로 영역이 늘어나므로 사이즈는 별도로 조절 필요 -->
+        <h4>블럭 엘리먼트 사용시 방법 2</h4>
+        <div style="border:1px solid red; height:100px; width:200px; padding-top:100px;">
+        나는 텍스트2
+        </div>
+
+        <!-- 인라인 엘리먼트 인경우 세로 상태에서의 가운데 정렬은 vertical-align -->
+        <h4>인라인 엘리먼트 사용시</h4>
+        <table border="1" width="300">
+            <tr>
+                <td style="height:100px; vertical-align:top">
+                    인라인 엘리먼트 세로 정렬
+                </td>
+            </tr>
+            <tr>
+                <td style="height:100px; vertical-align:middle">
+                    인라인 엘리먼트 세로 정렬
+                </td>
+            </tr>
+            <tr>
+                <td style="height:100px; vertical-align:bottom">
+                    인라인 엘리먼트 세로 정렬
+                </td>
+            </tr>
+        </table>
+
+        <!-- 각기 다른길이의 단어를 사용함으로써 발생되는 우측의 불규칙한 여백을 깔끔히 정리해줌 -->
+        <h2>배분정렬</h2>
+        <p style="border:1px solid blue; text-align:justify;">
+            천연기념물 제198호인 따오기가 한국에서 멸종된 42년 만에 자연에서 태어났다.
+            문화재청은 2019년부터 자연방사를 해오고 있는 따오기가 지난 26일 국내 첫 야생 부화에 성공했다고 29일 밝혔다.
+            부화에 성공한 따오기는 2016년생 암수 한 쌍, 2019년생 암컷과 2016년생 수컷 한 쌍이다. 
+            지난 3월 중순부터 창녕군 우포늪 일원에 둥지를 틀고 3월 말 산란을 시작했다. 
+            먼저 부화에 성공한 따오기는 2016년생으로, 알 세 개 중 하나는 알을 품는 과정에서 깨졌지만, 나머지 두 알이 26일과 28일 각각 부화에 성공했다. 
+            나머지 한 쌍은 4개의 알을 산란해 2개가 깨졌고, 1개는 28일 부화에 성공했다. 나머지 하나는 아직 품고 있다.
+            현재 새끼들은 부모 품에서 자라고 있으며, 오는 6월 둥지를 떠나 우포늪 하늘을 누빌 것으로 예상된다. 
+            야생에서 태어난 따오기는 어느 정도 성장하면 유전자 검사와 성별 분석 등을 통해 관리된다.
+            야생방사 사업을 통해 2019년부터 현재까지 총 80마리의 따오기가 방사됐다. 현재 50마리(생존율 62.5%)가 야생에서 살고 있다. 
+            따오기의 수컷 비율이 더 높기 때문에 오는 5월6일 세 번째 따오기 야생 방사부터는 암컷의 수를 늘려 야생 따오기의 성비를 1:1로 맞출 계획이다.
+            2008년 한중 정상회담 당시 후진타오(胡錦濤) 중국 국가주석이 따오기 한 쌍을 기증하면서 복원 노력이 시작됐다. 
+            중국에서 도입한 한 쌍으로 복원에 나선 지 10년 만인 2019년에 따오기 40마리를 처음 자연에 방사했다.
+            황새목 저어샛과인 따오기는 관련 동요가 있을 정도로 우리나라에서 비교적 흔히 볼 수 있는 새였다. 
+            키는 약 75∼78㎝로, 날개를 펼치면 길이가 150∼160㎝에 달한다. 따오기는 동북아시아 전역에 분포한다. 
+            1860년 무렵 우리나라에 많은 따오기가 분포한다는 기록이 있었으며, 1913년에는 서울 북부 지역에서 50마리의 따오기 무리가 발견되기도 했다. 
+            하지만 1979년 비무장지대(DMZ)에서 사진이 찍힌 뒤로 야생 따오기는 국내에서 완전히 자취를 감췄다.
+        </p>
+
+        <h2>들여쓰기</h2>
+        <div style="border:1px solid red; text-indent:1em;">
+                블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+                블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+                블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+            </span>
+        </div>
+        <div style="border:1px solid blue; padding-left:10px;">
+            <span style="text-indent:1em;">
+                인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+                인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+                인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+                인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+            </span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul >li {
+            font-size:20px; font-weight:normal;
+            color:green; width:400px;
+        }
+        /*
+        13. 반응선택자: 마우스 반응에 따라 태그 선택
+            - hover: 해당 영역에 마우스 올렸을 때 선택됌
+            - active: 해당 영역을 클릭했을 때 선택됌
+        */
+        .menu>li:hover{
+            color:red; font-weight:bold;
+        }
+        .menu>li:active{
+            color:yellow; background-color:black;
+        }
+        /*
+        14. 상태선택자: 요소의 현재 상태에 따라 태그 선택
+        */
+        input:focus{ /* 포커스를 얻었을때 */
+            border:2px red dotted; background-color:yellow;
+        }
+        input:enabled{ /* 활성화 된 상태일때. input의 디폴트 상태 */
+            color:red; font-weight:bold;
+        }
+        input:disabled{ /* 비활성화 상태일때. input에 disabled속성을 부여 */
+            color:blue; background-color:aqua;
+            border:1px gray solid;
+        }
+        /*
+        15. after선택자: 선택된 요소를 감싸고 있는 콘텐츠의 뒷부분에 특정 내용을 추가할 때 사용
+        */
+        ul.link li{list-style-type:none;}
+        ul.link a::after{
+            content: '-(웹주소)' attr(href);
+        }
+        /*
+        16. 부정선택자:
+        not을 사용해서 선택된 요소 외의 태그들에 스타일 적용
+        */
+        ul.notClass lu:not(.odd){
+            background-color:yellow;
+        }
+    </style>
+</head>
+    <body>
+        <h2>반응선택자</h2>
+        <div>
+            <ul class="menu">
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+                <li>메뉴5</li>
+            </ul>
+        </div>
+
+        <h2>상태선택자</h2>
+        <div>
+            <form action="">
+                이름: <input type="text" name="name">
+                <br>
+                아이디: <input type="text" name="id">
+                <br>
+                패스워드: <input type="text" name="pwd" value="1234" disabled>
+                <br>
+            </form>
+        </div>
+
+        <h2>after선택자</h2>
+        <div>
+            <ul class="link">
+                <li><a href="www.naver.com">네이버</a></li>
+                <li><a href="www.nate.com">네이트</a></li>
+                <li><a href="www.daum.net">다움</a></li>
+                <li><a href="www.google.com">구글</a></li>
+                <li><a href="www.ikosmo.co.kr">코스모</a></li>
+                <li><a href="www.yahoo.com">야후</a></li>
+            </ul>
+        </div>
+
+        <h2>부정선택자</h2>
+            <ul class="notClass">
+                <li class="odd"><a href="#">Naver</a></li>li>
+                <li><a href="#">Nate</a></li>li>
+                <li class="odd"><a href="#">Daum</a></li>li>
+                <li><a href="#">Google</a></li>li>
+            </ul>
+    </body>
+</html>

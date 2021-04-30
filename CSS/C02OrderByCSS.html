@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!--
+            CSS적용방식 1: Embedding스타일) style태그 사용
+        -->
+        <style>
+            /* 뒤에서 선언한 스타일이 우선순위가 높음 */
+            h2{ color:blue; }
+            h2{ color:red; }
+            /*  본문의 h2는 빨간색으로 표시됌 */
+            
+            /* Important: 순서에 상관없이 무조건 최우선 순위를 부여 */
+            #mnt{ color:gray !important; }
+            /* 본문의 설악산은 회색으로 표시됌 */
+
+            dd{ color:green; }
+        </style>
+        <!-- 2. External스타일: 외부파일로 만든 후 링크시켜 사용
+        개발 도중엔 ㄴㄴ 개발 다 하고 배포할 때 따로 빼서 적용 ㄱㄱ-->
+        <link rel="stylesheet" href="./style/style.css">
+        <!-- dd태그선택자는 외부파일로 선왼된 파란색으로 적용됌
+            Embedding과 External에 따른 우선순위는 없음. -->
+    </head>
+    <body>
+        <h2>선택자 종류에 따른CSS 적용순서</h2>
+        <ul>
+            <li class="mountain">관악산</li>
+            <!-- 3. Inline스타일:
+                적용하고자 하는 태그에 style속성으로 지정 -->
+            <li class="mountain" style="color:violet;" id="mnt">설악산</li>
+            <li class="mountain">지리산</li>
+            <li class="mountain">한라산</li>
+        </ul>
+
+        <h2>CSS적용 스타일에 따른 적용순서</h2>
+        <dl>
+            <dd>종로구</dd>
+            <dd>강동구</dd>
+            <dd>금천구</dd>
+            <!-- 인라인으로 지정됐으므로 빨강색으로 적용 -->
+            <dd style="color:red;"> 강남구</dd>
+        </dl>
+    </body>
+</html>
