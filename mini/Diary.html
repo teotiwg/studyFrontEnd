@@ -1,0 +1,487 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>다이어리</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            background-color: white;
+            color: white;
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #headDiv {
+            vertical-align: top;
+            display: inline;
+        }
+
+        #columnL4 {
+            width: 250px;
+            height: 460px;
+            background-color: white;
+            border: 2px solid lightgray;
+            margin: 0px 0 5px 10px;
+            border-radius: 15px 15px 15px 15px;
+            padding:0;
+        }
+
+        #columnM4 {
+            width: 639px;
+            height: 460px;
+            padding-left: 0;
+            margin: 0px 0 5px 0px;
+            background-color: white;
+            border: 2px solid lightgray;
+            border-radius: 15px 15px 15px 15px;
+            display: flex;
+        }
+
+        #columnL3 {
+            /*float: left;*/
+            width: 265px;
+            height: 515px;
+            background-color: #f2f2f2;
+            border: 3px solid lightgray;
+            margin: 10px 0 0 5px;
+            border-radius: 10px 10px 10px 10px;
+            border-right: none;
+            padding-right: 0;
+            padding-top: 20px;
+        }
+
+        #columnM3 {
+            width: 655px;
+            height: 515px;
+            padding: 20px 0 0 0;
+            background-color: #f2f2f2;
+            border: 3px solid lightgray;
+            border-radius: 10px 10px 10px 10px;
+            border-left: none;
+            margin: 10px 15px 0 0;
+            display: inline-block /*flex*/;
+            overflow: visible;
+        }
+
+        #columnL2 {
+            /* margin: 0 0 0 0;*/
+            /*float: left;*/
+            padding-right: 0;
+            width: 270px;
+            height: 540px;
+            background-color: none;
+            border: 3px dashed lightgray;
+            margin: 20px 0 0 25px;
+            /*margin-right: 0;*/
+            border-radius: 10px 10px 10px 10px;
+            border-right: none;
+        }
+
+        #columnM2 {
+            padding-left: 0;
+            width: 665px;
+            height: 540px;
+            margin-right: 0;
+            /*border-color:white;*/
+            background-color: none;
+            border: 3px dashed lightgray;
+            border-radius: 10px 10px 10px 10px;
+            border-left: none;
+            margin: 20px 15px 0 0;
+            overflow: visible;
+        }
+
+        .column {
+            float: left;
+            /*padding: 10px;*/
+            height: 600px; /* Should be removed. Only for demonstration */
+            background-color: white;
+            border: 3px solid lightgray;
+            /*margin-bottom:10%;*/
+        }
+
+            .column.lside {
+                padding-right: 0;
+                width: 300px;
+                margin: 0 0 0 250px;
+                background-color: /*#f2f2f2*/ cadetblue;
+                border-radius: 10px 10px 10px 10px;
+                border-right: none;
+            }
+
+            .column.middle {
+                width: 710px;
+                margin-right: 0;
+                padding-left: 0;
+                /*border-color:white;*/
+                background-color: /*#f2f2f2*/ cadetblue;
+                border-radius: 10px 10px 10px 10px;
+                border-left: none;
+                overflow: visible;
+            }
+
+            .column.rside {
+                width: 10%;
+                padding: 0 0 0 0;
+                border-color: white;
+            }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        label {
+            font-size: 12px;
+            /*vertical-align: bottom;*/
+            color: gray;
+            padding: 0;
+            margin: 0px 0px 0 40px;
+        }
+
+        #fieldsetLeft {
+            width: 230px;
+            height: 440px;
+            margin: 10px 5px 10px 5px;
+            padding: 20px 0 0 0;
+            border-color: white;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        #minilog-title {
+            font-size: 15px;
+            text-decoration: none;
+            vertical-align: top;
+            color: gray;
+            margin: 0 0 0 30px;
+            /*float: left;*/
+            /*display:flex;*/
+        }
+
+        #header-button {
+            width: 34px;
+            height: 15px;
+            background-color: lightgray;
+            border: 1px solid lightgray;
+            color: white;
+            font-size: x-small;
+        }
+
+        #address-url {
+            text-decoration: none;
+            color: gray;
+            font-size: x-small;
+            float: right;
+            vertical-align: bottom;
+            margin: 5px 35px 0 0;
+        }
+
+        #commenttxt {
+            width: 500px;
+            margin: 10px 0px 30px 13px;
+        }
+
+        #commentsubmit {
+            width: 39px;
+            height: 20px;
+            background-color: white;
+            border: 1px solid gray;
+            float: right;
+            margin: 10px 25px 0px 0px;
+        }
+
+        .menu-button {
+            background-color: #009999;
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            width: 70px;
+            height: 40px;
+            display: inline-block;
+            border: 2.5px solid lightgray;
+            border-bottom: none;
+            border-left: none;
+            border-radius: 0px 10px 10px 0px;
+            /*margin: 0;*/
+        }
+
+        .btn-group {
+            display: block;
+            position: absolute;
+            top: 200px;
+            right: 209px;
+        }
+
+        .menu-button:hover {
+            background-color: white;
+            color: #009999;
+            border: 2.5px solid lightgray;
+            border-left: none;
+            font-size: smaller;
+        }
+
+        #homebutton {
+            /*margin-top: 70px;*/
+            text-decoration: none;
+        }
+
+        #diarybutton {
+            font-size: 13px;
+        }
+
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        /*@media (max-width: 600px) {
+
+            .column.side,
+            .column.middle {
+                width: 100%;
+            }
+        }*/
+
+
+        #cal {
+            text-align: center;
+            border: 1px solid white; 
+            text-align :center;
+            width : 45px; 
+            height : 45px;
+        }
+        table{
+            text-align: center;
+        }
+        #dia {
+            padding: 5px;
+            text-align: center;
+            width: 610px;
+            height: 440px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            margin: 5px 5px 5px 15px;
+            overflow-y: auto;
+        }
+        #file {
+            width: 80%;
+            height: 300px;
+            padding: 10px;
+            margin: 10px 50px;
+            text-align: center;
+            border: 1px solid lightgray;
+            overflow: auto;
+        }
+
+        #textareaDiaTitle {
+            width: 440px;
+            height: 25px;
+            text-align: left;
+            background-color: white;
+            color: dimgray;
+            margin-top: 0;
+            font-size: 15px;
+            border: 1px solid white;
+            float: left;
+            resize: none;
+        }
+        #diaTitle {
+            border: 1px solid white;
+            border-bottom-color: gray;
+            width: 550px;
+            height: 30px;
+            margin: 5px 10px 5px 23px;
+            padding: 0;
+            display: flex;
+        }
+
+        #buttonUpload {
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            background-color: white;
+            color: #009999;
+            margin-top: 5px;
+            font-size: 12px;
+            border: 1px solid #009999;
+            float: right;
+        }
+        #imageUploader {
+            width: 70px;
+            height: 20px;
+            text-align: center;
+            background-color: white;
+            color: #009999;
+            margin-top: 5px;
+            font-size: 12px;
+            border: 1px solid #009999;
+            float: right;
+        }
+
+        #diaText {
+            margin: 0 0 5px 22px;
+            border: 1px solid lightgray;
+            overflow: auto; 
+            width: 550px;
+            height: 330px;
+            resize: none;
+        }
+
+        #replyContainer {
+            width: 550px;
+            height: 70px;
+            border: 1px solid white;
+            text-align: start;
+            margin-left: 21px;
+        }
+        #reply {
+            resize: none;
+            width: 490px;
+            height: 20px;
+            margin: 5px 0 0 5px;
+        }
+        .reply_button {
+            width: 45px;
+            height: 20px;
+            font-size: 13px;
+            text-align: center;
+            background-color: white;
+            border: 1px solid gray;
+            float: right;
+            margin: 5px 5px 0 0;
+        }
+
+            .active {
+            background: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>MINILOG</h2>
+    </div>
+
+    <div class="row">
+        <div class="column lside">
+            <div id="columnL2">
+                <div id="columnL3">
+                    <label>TODAY: -- </label> <label>TOTAL:---</label><br />
+                    <div id="columnL4">
+                        <fieldset id="fieldsetLeft">
+
+                            <div id="cal">
+                                <table id="calendar">
+                                    <tr>
+                                        <td align="center">
+                                            <label onclick="prevClaendar()">
+                                                <
+                                            </label>
+                                        </td>
+                                        <td colspan="5" align="center" id="calendarYM">yyyy년 m월</td>
+                                        <td align="center"> <label onclick="nextCalendar()">></label> </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">일</td>
+                                        <td align="center">월</td>
+                                        <td align="center">화</td>
+                                        <td align="center">수</td>
+                                        <td align="center">목</td>
+                                        <td align="center">금</td>
+                                        <td align="center">토</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column middle">
+            <div id="columnM2">
+                <div id="columnM3">
+                    <span id="headDiv">
+                        <label id="minilog-title">MINILOG</label>
+                        <button type="button" id="header-button">수정</button>
+                        <a href="Home.html" id="address-url">http://www.minilog.com/minilog</a><br />
+                    </span>
+
+                    <div id="columnM4">
+                        <div id="dia">
+                            <div id="diaTitle">
+                                <textarea id="textareaDiaTitle"></textarea>
+                                <input type="file" id="imageUploader" accept="image/*" onchange="setThumbnail(event);" />
+                                <button type="button" id="buttonUpload" onclick="window.open('DiaryUpload.html', '사진 업로드', 'width=300, height=120, location=no, status=no, scrollbars=no');"><strong>사진 올리기</strong></button><br />
+
+                            </div>
+
+                            <div id="diaText">
+                                    <!--<input type="file" id="imageUploader" accept="image/*" onclick="setThumbnail(event);" />-->
+                            </div>
+
+                            <div id="replyContainer">
+                                <textarea id="reply"></textarea>
+                                <button class="reply_button" type="submit" onclick="onReplyButtonClick(event)">댓글</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="menu-button" id="homebutton" onclick="document.location='Home.html'">홈</button><br />
+                        <button class="menu-button" id="diarybutton" onclick="document.location='Diary.html'">다이어리</button><br />
+                        <button class="menu-button" id="gallerybutton" onclick="document.location='Album.html'">사진첩</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        function setThumbnail(event) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var img = document.createElement("img");
+                img.setAttribute("src", event.target.result);
+                //document.querySelector("div#image_container").appendChild(img);
+                document.querySelector("div#diaText").appendChild(img);
+                //document.querySelector("#imageUploader").remove();
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function onReplyButtonClick(event) {
+            var div = document.createElement("div");
+            var reply = document.querySelector("#reply");
+            div.innerText = reply.value;
+            document.querySelector("#replyContainer").appendChild(div);
+            reply.value = "";
+        }
+
+    </script>
+
+    <script src="./js/calendar.js"></script>
+    <script type="text/javascript">
+
+        buildCalendar();
+    </script>
+    </body>
+</html>

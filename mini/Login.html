@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>로 그 인</title>
+
+    <style>
+        div {
+            width: 230px;
+            height: 210px;
+            background-color: white;
+            margin: auto;
+            margin-top:20px;
+            border: 1px solid lightgray;
+            padding: 25px 0 0 0px;
+            text-align:center;
+        }
+        #logo{
+            width: 63px;
+            height: 70px;
+            margin-bottom:10px;
+        }
+        input[type=submit] {
+            width: 165px;
+            height:25px;
+            background-color: orange;
+            color: white;
+            padding: 0;
+            margin-top:5px;
+            border: 0.5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /*input[type=submit]:hover {
+                background-color: orange;
+            }*/
+
+        button {
+            width: 60px;
+            background-color: lightgray;
+            color: white;
+            padding: 0;
+            /*margin: auto;*/
+            border: 0.5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover{
+                background-color: orange;
+            }
+        checkbox{
+            font-size: 10px;
+        }
+
+    </style>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <script>
+        //$(documnet).ready(function () { })
+        $(function () {
+            var info = window.localStorage.getItem("info");
+            if (info != null && info != "") {
+                //document.querySelector("input[name=id]").value = info;
+                $("input[name=id]").val(info);
+            }
+            //var formObj = document.querySelector("div.login>form");
+            var $formObj = $("div.login>form");
+            $form.Obj.submit( function () {
+                //var chkObj = document.querySelector("input[type=checkbox]");
+                var = $chkObj = $("input[type=checkbox"]);
+                if ($chkObj.prop("checked")) {
+                    //           var idObj = document.querySelector("input[name=id]")
+                    //            localStorage.setItem("info", idObj.value);
+                    var $idOBj = $("input[name=id]");
+                    localStorage.setItem("info", $idObj.val());
+                } else {
+                    localStorage.removeItem("info");
+                }
+                var id = $("input[name=id]").val();
+                var pwd = $("input[name=pwd]").val();
+
+                $.ajax({
+                    url: "./Home/Login"
+                    , method: "post"
+                    , data: "id = " + id + "&pwd=" + pwd
+                    , success: function (responseData) {
+                        //console.log(responseData);
+                        var jsonObj = JSON.parse(responseData);
+                        if (jsonObj.status == -1) {
+                            alert("로그인 실패");
+                        } else {
+                            //body > nav > ul > li:nth-child(2) > a
+                            $("body > nav > ul > li > a[href='./signup.html']")
+                            console.log($signupMenu);
+                            $signMenu.trigger("click"); // ~하면 ... 를 강제 발생시키는 메소드
+
+                        }
+                    }
+                });
+                alert("2");
+                // 기본 이벤트 처리 막기 서버로 요청 안 함
+                return false; // event.preventDefault(); // event.stopPropagation();
+
+            });
+
+        });
+
+        //window.addEventListener("load", function () {
+        //    var info = window.localStorage.getItem("info");
+        //    alert(info);
+
+        //    if (info != null && info != "") {
+        //        document.querySelector("input[name=id]").value = info;
+        //    }
+
+        //    var formObj = document.querySelector("div.login>form");
+        //    formObj.addEventListener("submit", function () {
+        //        // ID저장용 checkbox 객체를 dom트리에서 찾기
+        //        var chkObj = document.querySelector("input[type=checkbox]");
+        //        //chkObj객체의 checked 속성값이 true인 경우
+        //        if (chkObj.checked) {  // 사용자가 입력한 ID값을 localStorage의 아이템으로 추가(item name:'info', item value:ID값)
+        //            var idObj = document.querySelector("input[name=id]")
+        //            localStorage.setItem("info", idObj.value);
+        //        } else {
+        //            localStorage.removeItem("info");
+        //        }
+        //    });
+        //});
+
+    </script>
+</head>
+<body>
+    <div id="LOGIN">
+        <!--style="width:170px; height:80px; background-color:aliceblue;"-->
+        <form method="post" enctype="multipart/form-data" action="http://192.168.86.128">
+            <img src="logo.jpg" id="logo" alt="로고" /><br />
+            <input type="text" placeholder="ID"><br />
+            <input type="password" placeholder="password"><br />
+            <input type="submit" id="login" value="로그인"><br />
+            &nbsp;<label><input type="checkbox" checked>ID 저장</label>
+            <!--<input type="submit" id="login" value="로그인">-->
+            &nbsp;&nbsp;
+            <button type="button" id="join" onclick="window.open('signup.html', '회원가입', 'width=400, height=500');">회원가입</button>
+        </form>
+    </div>
+
+</body>
+</html>
