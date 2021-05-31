@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../common/jquery/jquery-3.6.0.js"></script>
+<script>
+/*
+ 제이쿼리의 시작점을 표현하는 4가지 방식으로 
+ 해당 HTML문서가 모두 로드된 이후 실행하겠다는 의미
+ JS의 onload이벤트와 비슷
+ */
+	$(document).ready(function(){
+		alert("jQuery 시작1");
+	});
+	
+	$().ready(function(){
+		alert("jQuery 시작2");
+	});
+	
+	jQuery(function(){
+		alert('jQuery 시작3');
+	});
+	
+	$(function(){
+		// 간단하므로 가장 많이 사용
+		alert("jQuery 시작4");
+	});
+	
+	function myFunc(){
+		
+	}
+</script>
+</head>
+<body>
+	<h2>제이쿼리 시작</h2>
+	<script>
+		alert("HTML문서 끝");
+	</script>
+</body>
+</html>
