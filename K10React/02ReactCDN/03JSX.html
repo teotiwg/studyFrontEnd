@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Document</title>
+    <style>
+        #soBig{color:red;}
+    </style>
+</head>
+<body>
+    <!--
+        JSX(JavaScript XML) :
+        - React.js에서 HTML을 좀 더 쉽게 사용하기 위해 작성
+        - 만약 JSX가 없다면 React.createElement() 메소드 사용해야 함
+        - 컴파일하기에 최적화되고, 빠른 속도를 가짐
+        - class형태로 만들어진 컴포넌트에선 반드시 render()함수가 존재해야 하고 
+            그 내부에선 JSX를 리턴하도록 코딩 필요
+        - 최상위 엘리먼트가 반드시 한 개만 존재해야 함
+
+    -->
+    <h2>JSX(JS XML)사용 시</h2>
+    <div id="myDiv1"></div>
+
+    <h2>JSX 미사용 시</h2>
+    <div id="myDiv2"></div>
+    
+    <h2>JSX Curly Braces(표현식: {} )</h2>
+    <div id="myDiv3"></div>
+    
+    <h2>JSX에 블럭 단위의 HTML 삽입</h2>
+    <div id="myDiv4"></div>
+    
+    <h2>하나의 최상위 엘리먼트만 포함 가능</h2>
+    <div id="myDiv5"></div>
+    
+    <script type="text/babel">
+    /*
+    JSX를 사용하여 렌더링함
+    HTML태그 형태와 유사하게 기술하면 되므로 편리??????????????????????????????????????
+    */
+        const myElement = <h4>JSX 좋아요</h4>;
+        ReactDOM.render(myElement, document.getElementById('myDiv1'));
+
+    /*
+    JSX 없이 출력하고자 할 땐 React.createElement() 메소드 이용
+    형식)
+    React.createElement(엘리먼트 타입, 속성값, 출력할 내용)
+    */
+        const yourElement = 
+            React.createElement('h4', {id:'soBig'}, 'JSX가 없을 땐 이렇게');
+            // 위는 <h4 id='soBig'> JSX가 없을 떄...</h4>와 동일
+        ReactDOM.render(yourElement, document.getElementById('myDiv2'));
+
+        /*
+    Curly Braces(표현식) : 
+    중괄호로 주로 표현하며, React변수 또는 속성, 게산식 등을 실행하고 결과를 리턴하는 역할
+        */
+        const outElement = <h4>표현식은 콧수염 이용: { 5 + 5 } </h4>;
+        ReactDOM.render(outElement, document.getElementById('myDiv3'));
+
+        /*
+    JSX는 XML규칙을 따르므로 HTML엘리먼트를 올바르게 열고 닫아야 함
+    Pair(쌍)을 이루고 있는 태그인 경우 시작과 종료 태그 기술 필수
+    img태그와 같이 단독으로 사용되는 경우에는 끝에 슬러쉬 기술 필수
+        */
+        const fruitElement = (
+            <ul>
+                <li>Apples</li>    
+                <li>Bananas</li>    
+                <li>Cherries</li>    
+                <li>Oranges</li>   
+                <li><img src='http://peoplink.godo.co.kr/shop/data/goods/1501810660895m0.jpg'/></li> 
+            </ul>
+        );
+        ReactDOM.render(fruitElement, document.getElementById('myDiv4'));
+        
+        /*
+    JSX에선 최상위 엘리먼트가 한 개는 있는 형태로 작성 필요
+    아래의경우 div태그를 제거하면 오류 발생
+    또한 JSX 내에선 HTML주석 사용 불가
+    일반적인 JS의 블럭단위 주석 사용
+        */
+        const oneElement = (
+            <div>
+                <h4>최상위 엘리먼트의</h4>
+                <h4>하위 엘리먼트 형태로 작성 필요</h4>    
+            </div>
+            /* <div>상위 레벨의 태그가 2개 이상이면 에러 발생</div> */
+        );
+        ReactDOM.render(oneElement, document.getElementById('myDiv5'));
+
+    </script>
+</body>
+</html>
